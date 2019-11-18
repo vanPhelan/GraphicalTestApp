@@ -15,12 +15,16 @@ namespace GraphicalTestApp
             Actor root = new Actor();
             game.Root = root;
 
-            //Entity player = new Entity(640, 380);
-            //AABB boc = new AABB(64, 64);
+            Entity player = new Entity(640, 380);
+            AABB box = new AABB(64, 64);
 
-            //player.AddChild(boc);
-            //root.AddChild(player);
-
+            Sprite testing = new Sprite("Images/TEST.png");
+            
+            
+            root.AddChild(player);
+            player.AddChild(testing);
+            player.AddChild(box);
+            
             //## Set up game here ##//
 
             game.Run();

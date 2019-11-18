@@ -9,9 +9,12 @@ namespace GraphicalTestApp
 
         public float XVelocity
         {
-            //## Implement velocity on the X axis ##//
-            get { return 0; }
-            set { }
+            get { return _velocity.x; }
+
+            set
+            {
+                _velocity.x = value;
+            }
         }
         public float XAcceleration
         {
@@ -21,9 +24,11 @@ namespace GraphicalTestApp
         }
         public float YVelocity
         {
-            //## Implement velocity on the Y axis ##//
-            get { return 0; }
-            set { }
+            get { return _velocity.y; }
+            set
+            {
+                _velocity.y = value;
+            }
         }
         public float YAcceleration
         {
