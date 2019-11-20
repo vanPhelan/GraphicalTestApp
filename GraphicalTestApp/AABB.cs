@@ -53,11 +53,7 @@ namespace GraphicalTestApp
         //Draw the bounding box to the screen
         public override void Draw()
         {
-            Raylib.Rectangle rec = new Raylib.Rectangle(
-                XAbsolute - Width / 2,
-                YAbsolute - Height / 2,
-                Width,
-                Height);
+            Raylib.Rectangle rec = new Raylib.Rectangle(Left, Top, Width, Height);
             Raylib.Raylib.DrawRectangleLinesEx(rec, 5, Raylib.Color.RED);
             base.Draw();
         }
