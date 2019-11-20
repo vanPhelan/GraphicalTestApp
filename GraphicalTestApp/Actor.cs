@@ -120,8 +120,8 @@ namespace GraphicalTestApp
             //Remove all the Actors readied for removal
             foreach (Actor a in _removals)
             {
-                //Add a to _children
-                _children.Add(a);
+                //Remove a from _children
+                _children.Remove(a);
             }
             //Reset the removal list
             _removals.Clear();
