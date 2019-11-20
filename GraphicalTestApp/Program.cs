@@ -15,16 +15,26 @@ namespace GraphicalTestApp
             Actor root = new Actor();
             game.Root = root;
 
-            Entity player = new Entity(640, 380);
-            AABB box = new AABB(64, 64);
+            Cannon cannon = new Cannon();
+            Player TankBase = new Player(640, 380);
 
-            Sprite testing = new Sprite("Images/TEST.png");
+            AABB box2 = new AABB(200, 200);
+            AABB box = new AABB(64,64);
+
+            Sprite tankBaseImage = new Sprite("Images/TEST.png");
+            Sprite cannonImage = new Sprite("Images/TEST.png");
             
-            
-            root.AddChild(player);
-            player.AddChild(testing);
-            player.AddChild(box);
-            
+            root.AddChild(TankBase);
+            TankBase.AddChild(cannon);
+
+            TankBase.AddChild(tankBaseImage);
+            cannon.AddChild(cannonImage);
+
+            TankBase.AddChild(box);
+            cannon.AddChild(box2);
+
+
+
             //## Set up game here ##//
 
             game.Run();
