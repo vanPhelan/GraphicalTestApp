@@ -8,14 +8,14 @@ namespace GraphicalTestApp
 {
     class Program
     {
-        public static HiddenPlayerBox GameEmpty = new HiddenPlayerBox(640, 380);
+        public static HiddenPlayerBox GameEmpty = new HiddenPlayerBox(640, 180);
 
         public static Cannon cannon = new Cannon();
         public static Player TankBase = new Player();
 
-        public static HiddenPlayerBox GameEmpty2 = new HiddenPlayerBox(640, 380);
+        public static HiddenPlayerBox2 GameEmpty2 = new HiddenPlayerBox2(640, 580);
 
-        public static Cannon cannon2 = new Cannon();
+        public static Cannon2 cannon2 = new Cannon2();
         public static Player2 TankBase2 = new Player2();
 
 
@@ -25,7 +25,6 @@ namespace GraphicalTestApp
 
             Actor root = new Actor();
             game.Root = root;
-
             
             //player 1
             AABB box2 = new AABB(200, 200);
@@ -48,16 +47,20 @@ namespace GraphicalTestApp
             cannon.AddChild(box2);
 
             //player 2
+            AABB box3 = new AABB(200, 200);
+            AABB box4 = new AABB(64, 64);
 
+            Sprite tankBaseImage2 = new Sprite("Images/TEST.png");
+            Sprite cannonImage2 = new Sprite("Images/TEST.png");
 
             GameEmpty2.AddChild(TankBase2);
             TankBase2.AddChild(cannon2);
 
-            TankBase.AddChild(tankBaseImage);
-            cannon.AddChild(cannonImage);
+            TankBase2.AddChild(tankBaseImage2);
+            cannon2.AddChild(cannonImage2);
 
-            TankBase.AddChild(box);
-            cannon.AddChild(box2);
+            TankBase2.AddChild(box3);
+            cannon2.AddChild(box4);
 
             //## Set up game here ##//
 
@@ -67,9 +70,17 @@ namespace GraphicalTestApp
         {
             return TankBase;
         }
+        public Player2 GetPlayer2()
+        {
+            return TankBase2;
+        }
         public HiddenPlayerBox GetHidden()
         {
             return GameEmpty;
+        }
+        public HiddenPlayerBox2 GetHidden2()
+        {
+            return GameEmpty2;
         }
     }
 }

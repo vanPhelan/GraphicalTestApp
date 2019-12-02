@@ -17,19 +17,19 @@ namespace GraphicalTestApp
 
         public override void Update(float deltaTime)
         {
-            if (Input.IsKeyDown(265))//up arrow
+            if (Input.IsKeyDown(325))//up arrow
             {
                 Y -= .005f * deltaTime;
             }
-            if (Input.IsKeyDown(264))//down arrow
+            if (Input.IsKeyDown(322))//down arrow
             {
                 Y += .005f * deltaTime;
             }
-            if (Input.IsKeyReleased(87))
+            if (Input.IsKeyReleased(325))
             {
                 Y *= 0 * deltaTime;
             }
-            if (Input.IsKeyReleased(83))
+            if (Input.IsKeyReleased(322))
             {
                 Y *= 0 * deltaTime;
             }
