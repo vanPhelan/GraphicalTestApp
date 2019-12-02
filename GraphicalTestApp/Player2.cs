@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace GraphicalTestApp
 {
-    class Player : Entity
+    class Player2 : Entity
     {
+
         //Creates an Entity at the specified coordinates
-        public Player() : base (0,0)
+        public Player2() : base(0, 0)
         {
-            
+
         }
 
         public override void Update(float deltaTime)
         {
-            if (Input.IsKeyDown(87))
+            if (Input.IsKeyDown(265))//up arrow
             {
                 Y -= .005f * deltaTime;
             }
-            if (Input.IsKeyDown(83))
+            if (Input.IsKeyDown(264))//down arrow
             {
                 Y += .005f * deltaTime;
             }
@@ -38,4 +39,3 @@ namespace GraphicalTestApp
         }
     }
 }
-

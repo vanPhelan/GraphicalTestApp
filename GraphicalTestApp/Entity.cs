@@ -10,7 +10,7 @@ namespace GraphicalTestApp
         public float XVelocity
         {
             get { return _velocity.x; }
-
+            
             set
             {
                 _velocity.x = value;
