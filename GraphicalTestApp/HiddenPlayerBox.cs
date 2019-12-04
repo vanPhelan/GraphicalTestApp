@@ -21,6 +21,8 @@ namespace GraphicalTestApp
         {
             program.GetHidden().X = program.GetPlayer().XAbsolute;
             program.GetHidden().Y = program.GetPlayer().YAbsolute;
+            program.GetPlayer().X = 0;
+            program.GetPlayer().Y = 0;
             if (Input.IsKeyDown(65))
             {
                 Rotate(-4 * deltaTime);

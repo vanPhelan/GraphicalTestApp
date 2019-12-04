@@ -4,6 +4,8 @@ namespace GraphicalTestApp
 {
     class AABB : Actor
     {
+        Raylib.Color _color = Raylib.Color.RED;
+
         public float Width { get; set; } = 1;
         public float Height { get; set; } = 1;
 
@@ -40,14 +42,21 @@ namespace GraphicalTestApp
 
         public bool DetectCollision(AABB other)
         {
-            //## Implement DetectCollision(AABB) ##//
+            if (Right >= other.Left && Bottom >= other.Top && Left <= other.Right && Top <= other.Bottom)
+            {
+                _color = Raylib.Color.BLUE;
+                return true;
+            }
+            else
+            {
+                _color = Raylib.Color.GREEN;
+            }
             return false;
         }
 
         public bool DetectCollision(Vector3 point)
         {
-            //## Implement DetectCollision(Vector3) ##//
-            return false;
+            return !(point.x < Bottom || point.y < Left || point.x > Right || point.y > Top);
         }
 
         //Draw the bounding box to the screen
@@ -59,7 +68,7 @@ namespace GraphicalTestApp
                 Width,
                 Height);
 
-            Raylib.Raylib.DrawRectangleLinesEx(rec, 5, Raylib.Color.RED);
+            Raylib.Raylib.DrawRectangleLinesEx(rec, 5, _color);
             base.Draw();
         }
     }

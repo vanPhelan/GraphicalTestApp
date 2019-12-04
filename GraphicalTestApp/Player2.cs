@@ -19,11 +19,11 @@ namespace GraphicalTestApp
         {
             if (Input.IsKeyDown(325))//up arrow
             {
-                Y -= .005f * deltaTime;
+                Y -= 200f * deltaTime;
             }
             if (Input.IsKeyDown(322))//down arrow
             {
-                Y += .005f * deltaTime;
+                Y += 200f * deltaTime;
             }
             if (Input.IsKeyReleased(325))
             {
