@@ -7,6 +7,8 @@ namespace GraphicalTestApp
         private Vector3 _velocity = new Vector3();
         private Vector3 _acceleration = new Vector3();
 
+        
+
         public float XVelocity
         {
             get { return _velocity.x; }
@@ -44,11 +46,22 @@ namespace GraphicalTestApp
             Y = y;
         }
 
+        Player player = new Player(0,0);
+
         public override void Update(float deltaTime)
         {
-
+            if (Input.IsKeyDown(87))
+            {
+                player.Y += 100 * deltaTime;
+            }
+            if (Input.IsKeyDown(83))
+            {
+                player.Y += 100 * deltaTime;
+            }
             //## Calculate velocity from acceleration ##//
             //## Calculate position from velocity ##//
+            X += _velocity.x;
+            Y += _velocity.y;
             base.Update(deltaTime);
         }
     }
