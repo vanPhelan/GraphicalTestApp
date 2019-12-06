@@ -38,7 +38,19 @@ namespace GraphicalTestApp
                 }
             }
 
+            if (Input.IsKeyPressed(32))
+            {
+                Fire();
+            }
+
             base.Update(deltaTime);
+        }
+        private void Fire()
+        {
+            Bullet GreenBullet = new Bullet(Program.cannon.XAbsolute, Program.cannon.YAbsolute);
+            GreenBullet.Rotate(Program.cannon.GetRotation());
+            GreenBullet.XVelocity = (float)Math.Cos(Program.cannon.GetRotation() - Math.PI * .5f) * 100;
+            Parent.Parent.Parent.AddChild(GreenBullet);
         }
     }
 }

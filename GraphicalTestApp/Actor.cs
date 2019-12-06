@@ -86,6 +86,11 @@ namespace GraphicalTestApp
             UpdateTransform();
         }
         
+        public Vector3 GetDirection()
+        {
+            return new Vector3(_localTransform.m12, _localTransform.m11, 0);
+        }
+
         public float GetScaleAbsolute()
         {
             return 0;
@@ -100,7 +105,7 @@ namespace GraphicalTestApp
 
             child.Parent = this;
 
-            _children.Add(child);
+            _children.Add(_additions);
         }
 
         public void RemoveChild(Actor child)

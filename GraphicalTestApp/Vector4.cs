@@ -24,7 +24,8 @@ namespace GraphicalTestApp
         public float Magnitude()
         {
             return (float)Math.Sqrt(x * x + y * y + z * z + w * w);
-        }        public float MagnitudeSqr()
+        }
+        public float MagnitudeSqr()
         {
             return (x * x + y * y + z * z + w * w);
         }
