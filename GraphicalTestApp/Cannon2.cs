@@ -15,6 +15,11 @@ namespace GraphicalTestApp
 
         public override void Update(float deltaTime)
         {
+            if (Input.IsKeyPressed(262))
+            {
+                Fire();
+            }
+
             if (Input.IsKeyDown(326))
             {
                 if (GetRotation() <= Math.PI / 4)
@@ -39,6 +44,16 @@ namespace GraphicalTestApp
             }
 
             base.Update(deltaTime);
+        }
+        private void Fire()
+        {
+            Bullet2 RedBullet = new Bullet2(XAbsolute, YAbsolute);
+
+            RedBullet.Rotate(Parent.Parent.GetRotation() + GetRotation());
+            
+            RedBullet.XVelocity = (float)Math.Cos(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300;
+            RedBullet.YVelocity = (float)Math.Sin(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300;
+            Parent.Parent.Parent.AddChild(RedBullet);
         }
     }
 }

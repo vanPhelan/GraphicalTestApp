@@ -14,6 +14,10 @@ namespace GraphicalTestApp
         {
             X = x;
             Y = y;
+
+            AABB hitbox = new AABB(BulletImage.Width, BulletImage.Height);
+
+            AddChild(hitbox);
             AddChild(BulletImage);
         }
         public override void Update(float deltaTime)

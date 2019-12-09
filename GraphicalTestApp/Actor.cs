@@ -105,17 +105,12 @@ namespace GraphicalTestApp
 
             child.Parent = this;
 
-            _children.Add(_additions);
+            _additions.Add(child);
         }
 
         public void RemoveChild(Actor child)
         {
-            bool isMyChild = _children.Remove(child);
-            if (isMyChild)
-            {
-                child.Parent = null;
-                child._localTransform = child._globalTransform;
-            }
+            _removals.Add(child);
         }
 
         public void UpdateTransform()
