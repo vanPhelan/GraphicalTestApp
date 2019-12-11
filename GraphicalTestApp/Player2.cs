@@ -14,27 +14,21 @@ namespace GraphicalTestApp
         {
 
         }
-
         public override void Update(float deltaTime)
         {
+            //Checks for collison with Player1
+            Program.Player2HitBox.DetectCollision(Program.Player1HitBox);
+
+            //Moves the player up
             if (Input.IsKeyDown(325))//up arrow
             {
                 Y -= 200f * deltaTime;
             }
+            //Moves the player down
             if (Input.IsKeyDown(322))//down arrow
             {
                 Y += 200f * deltaTime;
             }
-            if (Input.IsKeyReleased(325))
-            {
-                Y *= 0 * deltaTime;
-            }
-            if (Input.IsKeyReleased(322))
-            {
-                Y *= 0 * deltaTime;
-            }
-            //## Calculate velocity from acceleration ##//
-            //## Calculate position from velocity ##//
             base.Update(deltaTime);
         }
     }

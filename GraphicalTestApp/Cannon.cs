@@ -12,49 +12,50 @@ namespace GraphicalTestApp
         {
 
         }
-
         public override void Update(float deltaTime)
         {
-            
-
-            if (Input.IsKeyPressed(32))
+            //Shoots a bullet
+            if (Input.IsKeyPressed(32))//SPACE
             {
                 Fire();
             }
 
-            if (Input.IsKeyDown(69))
+            //Rotates the cannon clockwize
+            if (Input.IsKeyDown(69))//E
             {
+                //Stops the Rotation at a certain extent
                 if (GetRotation() <= Math.PI / 4)
                 {
                     Rotate(4 * deltaTime);
                 }
-                else
-                {
-                    return;
-                }
             }
+
+            //Roataes the cannon counter clockwize
             if (Input.IsKeyDown(81))
             {
+                //Stops the Rotation at a certain extent
                 if (-GetRotation() <= Math.PI / 4)
                 {
                     Rotate(-4 * deltaTime);
                 }
-                else
-                {
-                    return;
-                }
             }
-
             base.Update(deltaTime);
         }
+
+        //Shoots a bullet
         private void Fire()
         {
+            //Creates a Bullet to shoot
             Bullet GreenBullet = new Bullet(XAbsolute, YAbsolute);
 
+            //Gets the Direction the bullet needs to face
             GreenBullet.Rotate(Parent.Parent.GetRotation() + GetRotation());
 
+            //Directs the way the bullet needs to travel
             GreenBullet.XVelocity = (float)Math.Cos(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300 ;
             GreenBullet.YVelocity = (float)Math.Sin(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300 ;
+
+            //Adds the bullet to the Scene
             Parent.Parent.Parent.AddChild(GreenBullet);
         }
     }

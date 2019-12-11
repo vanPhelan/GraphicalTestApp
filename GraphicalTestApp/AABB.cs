@@ -4,7 +4,8 @@ namespace GraphicalTestApp
 {
     class AABB : Actor
     {
-        Raylib.Color _color = Raylib.Color.RED;
+        //A private Color so the Color can be changed on collision
+        private Raylib.Color _color = Raylib.Color.RED;
 
         public float Width { get; set; } = 1;
         public float Height { get; set; } = 1;
@@ -40,34 +41,33 @@ namespace GraphicalTestApp
             Height = height;
         }
 
+        //Detects if collison is hit turning one box blue
         public bool DetectCollision(AABB other)
         {
             if (Right >= other.Left && Bottom >= other.Top && Left <= other.Right && Top <= other.Bottom)
             {
+                //turns the box blue while collison is detected
                 _color = Raylib.Color.BLUE;
                 return true;
             }
             else
             {
+                //If no collision then the box is green
                 _color = Raylib.Color.GREEN;
+                return false;
             }
-            return false;
         }
 
-        public bool DetectCollision(Vector3 point)
-        {
-            return !(point.x < Bottom || point.y < Left || point.x > Right || point.y > Top);
-        }
-
-        //Draw the bounding box to the screen
         public override void Draw()
         {
+            //Draw the bounding box to the screen
             Raylib.Rectangle rec = new Raylib.Rectangle(
                 XAbsolute - Width / 2,
                 YAbsolute - Height / 2,
                 Width,
                 Height);
 
+            //Allows the color to be changed
             Raylib.Raylib.DrawRectangleLinesEx(rec, 5, _color);
             base.Draw();
         }

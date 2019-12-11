@@ -8,10 +8,6 @@ namespace GraphicalTestApp
 {
     class HiddenPlayerBox : Entity
     {
-        Program program = new Program();
-
-        
-
         public HiddenPlayerBox(float x, float y) : base(x, y)
         {
 
@@ -19,20 +15,25 @@ namespace GraphicalTestApp
 
         public override void Update(float deltaTime)
         {
-            program.GetHidden().X = program.GetPlayer().XAbsolute;
-            program.GetHidden().Y = program.GetPlayer().YAbsolute;
-            program.GetPlayer().X = 0;
-            program.GetPlayer().Y = 0;
-            if (Input.IsKeyDown(65))
-            {
-                Rotate(-4 * deltaTime);
-            }
-            if (Input.IsKeyDown(68))
+            //Rotates the HiddenPlayerBox with the player
+            Program.Player1.X = Program.TankBase.XAbsolute;
+            Program.Player1.Y = Program.TankBase.YAbsolute;
+
+            //Sets the TankBase to the center of the HiddenPlayerBox
+            Program.TankBase.X = 0;
+            Program.TankBase.Y = 0;
+
+            //Rotates Clockwize
+            if (Input.IsKeyDown(68))//D
             {
                 Rotate(4 * deltaTime);
             }
 
-
+            //Rotates Counter ClockWize
+            if (Input.IsKeyDown(65))//A
+            {
+                Rotate(-4 * deltaTime);
+            }
             base.Update(deltaTime);
         }
     }

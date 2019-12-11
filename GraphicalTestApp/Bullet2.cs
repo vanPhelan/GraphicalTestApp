@@ -8,34 +8,39 @@ namespace GraphicalTestApp
 {
     class Bullet2 : Entity
     {
+        //Image of the bullet
         private Sprite BulletImage = new Sprite("Images/RedBullet.png");
+
+        //The HitBox of the bullet that gets called out of the bullet class
         private AABB Hitbox;
 
         public Bullet2(float x, float y) : base(x, y)
         {
             X = x;
             Y = y;
+            //HitBox of the bullet
             AABB hitbox = new AABB(BulletImage.Width, BulletImage.Height);
 
-            hitbox.X += 1;
-            hitbox.Y += 1;
-
+            //Sets the hitbox from the private one
             Hitbox = hitbox;
 
-        AddChild(hitbox);
+            //Adds the HitBox and the Image to the bullet
+            AddChild(hitbox);
             AddChild(BulletImage);
-
-            OnUpdate += BulletCollision;
         }
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
+            //calls bullet Collision
+            BulletCollision(deltaTime);
         }
         private void BulletCollision(float deltatime)
         {
-            if (Hitbox.DetectCollision(Program.box2))
+            //sees if the bullet is colliding with the other tank
+            if (Hitbox.DetectCollision(Program.Player1HitBox))
             {
-                //Parent.RemoveChild(this);
+                //Removes the bullet on collison
+                Parent.RemoveChild(this);
             }
         }
     }

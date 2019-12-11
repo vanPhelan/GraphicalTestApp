@@ -9,7 +9,6 @@ namespace GraphicalTestApp
 
     class Actor
     {
-        
         public StartEvent OnStart;
         public UpdateEvent OnUpdate;
         public DrawEvent OnDraw;

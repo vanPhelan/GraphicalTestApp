@@ -33,6 +33,7 @@ namespace GraphicalTestApp
             m31 = matrix3.m31; m32 = matrix3.m32; m33 = matrix3.m33;
         }
 
+        //prints the numbers
         public override string ToString()
         {
             return
@@ -143,6 +144,7 @@ namespace GraphicalTestApp
             Set(this * m);
         }
 
+        //get the Rotation and sets
         public void SetEuler(float pitch, float yaw, float roll)
         {
             Matrix3 x = new Matrix3();
@@ -155,11 +157,13 @@ namespace GraphicalTestApp
             Set(z * y * x);
         }
 
+        //sets the top 3 values of the matrix 3
         public void SetTranslation(float x, float y, float z)
         {
             m13 = x; m23 = y; m33 = z;
         }
 
+        //sets the middle 3 values of the matrix 3
         public void Translate(float x, float y, float z)
         {
             m13 += x; m23 += y; m33 += z;
