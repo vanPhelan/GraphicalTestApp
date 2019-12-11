@@ -23,6 +23,7 @@ namespace GraphicalTestApp
         private Matrix3 _localTransform = new Matrix3();
         private Matrix3 _globalTransform = new Matrix3();
         
+        //sets and gets the X value of an object
         public float X
         {
             get { return _localTransform.m13; }
@@ -34,10 +35,13 @@ namespace GraphicalTestApp
             }
         }
 
+        //Gets the global position of the X
         public float XAbsolute
         {
             get { return _globalTransform.m13; }
         }
+
+        ////sets and gets the Y value of an object
         public float Y
         {
             get { return _localTransform.m23; }
@@ -48,12 +52,15 @@ namespace GraphicalTestApp
                 UpdateTransform();
             }
         }
+
+        //Gets the global position of the Y
         public float YAbsolute
         {
             // The absolute Y coordinate
             get { return _globalTransform.m23; }
         }
 
+        //gets and returns the current rotation
         public float GetRotationAbsolute()
         {
             return (float)Math.Atan2(_globalTransform.m21, _globalTransform.m11);
@@ -84,17 +91,14 @@ namespace GraphicalTestApp
             _localTransform.Scale(scale, scale, 1);
             UpdateTransform();
         }
-        
-        public Vector3 GetDirection()
-        {
-            return new Vector3(_localTransform.m12, _localTransform.m11, 0);
-        }
 
+        // Gets the Scale
         public float GetScaleAbsolute()
         {
             return 0;
         }
 
+        //Adds a child to an object
         public void AddChild(Actor child)
         {
             if (child.Parent != null)
@@ -107,11 +111,13 @@ namespace GraphicalTestApp
             _additions.Add(child);
         }
 
+        //Removes and deletes a child from the object
         public void RemoveChild(Actor child)
         {
             _removals.Add(child);
         }
 
+        //Updates position of an object
         public void UpdateTransform()
         {
             if (Parent != null)

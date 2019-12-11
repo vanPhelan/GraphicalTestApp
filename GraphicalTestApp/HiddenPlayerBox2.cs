@@ -14,7 +14,7 @@ namespace GraphicalTestApp
 
         public HiddenPlayerBox2(float x, float y) : base(x, y)
         {
-
+            
         }
 
         public override void Update(float deltaTime)

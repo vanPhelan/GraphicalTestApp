@@ -10,7 +10,7 @@ namespace GraphicalTestApp
     {
 
         //Creates an Entity at the specified coordinates
-        public Player2() : base(0, 0)
+        public Player2(float x, float y) : base(x, y)
         {
 
         }

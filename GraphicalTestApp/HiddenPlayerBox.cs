@@ -10,12 +10,12 @@ namespace GraphicalTestApp
     {
         public HiddenPlayerBox(float x, float y) : base(x, y)
         {
-
+            
         }
 
         public override void Update(float deltaTime)
         {
-            //Rotates the HiddenPlayerBox with the player
+            ////Rotates the HiddenPlayerBox with the player
             Program.Player1.X = Program.TankBase.XAbsolute;
             Program.Player1.Y = Program.TankBase.YAbsolute;
 
@@ -23,7 +23,7 @@ namespace GraphicalTestApp
             Program.TankBase.X = 0;
             Program.TankBase.Y = 0;
 
-            //Rotates Clockwize
+            ////Rotates Clockwize
             if (Input.IsKeyDown(68))//D
             {
                 Rotate(4 * deltaTime);

@@ -11,7 +11,7 @@ namespace GraphicalTestApp
         //Player1 Game Objects 
         public static HiddenPlayerBox Player1 = new HiddenPlayerBox(640, 180);
 
-        public static Player TankBase = new Player();
+        public static Player TankBase = new Player(640, 180);
         public static Cannon cannon = new Cannon();
         //Player1 HitBox
         public static AABB Player1HitBox = new AABB(60, 60);
@@ -19,7 +19,7 @@ namespace GraphicalTestApp
         //Player2 Game Objects
         public static HiddenPlayerBox2 Player2 = new HiddenPlayerBox2(640, 580);
         
-        public static Player2 TankBase2 = new Player2();
+        public static Player2 TankBase2 = new Player2(640, 580);
         public static Cannon2 cannon2 = new Cannon2();
         //Player2 HitBox
         public static AABB Player2HitBox = new AABB(60, 60);

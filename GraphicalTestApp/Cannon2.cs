@@ -53,8 +53,8 @@ namespace GraphicalTestApp
             RedBullet.Rotate(Parent.Parent.GetRotation() + GetRotation());
 
             //Directs the way the bullet needs to travel
-            RedBullet.XVelocity = (float)Math.Cos(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300;
-            RedBullet.YVelocity = (float)Math.Sin(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300;
+            RedBullet.XAcceleration = (float)Math.Cos(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300;
+            RedBullet.YAcceleration = (float)Math.Sin(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300;
 
             //Adds the bullet to the Scene
             Parent.Parent.Parent.AddChild(RedBullet);

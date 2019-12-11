@@ -52,8 +52,8 @@ namespace GraphicalTestApp
             GreenBullet.Rotate(Parent.Parent.GetRotation() + GetRotation());
 
             //Directs the way the bullet needs to travel
-            GreenBullet.XVelocity = (float)Math.Cos(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300 ;
-            GreenBullet.YVelocity = (float)Math.Sin(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300 ;
+            GreenBullet.XAcceleration = (float)Math.Cos(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300 ;
+            GreenBullet.YAcceleration = (float)Math.Sin(GetRotation() + Parent.Parent.GetRotation() - Math.PI * .5f) * 300 ;
 
             //Adds the bullet to the Scene
             Parent.Parent.Parent.AddChild(GreenBullet);

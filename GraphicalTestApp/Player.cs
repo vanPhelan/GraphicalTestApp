@@ -9,7 +9,7 @@ namespace GraphicalTestApp
     class Player : Entity
     {
         //Creates an Entity at the specified coordinates
-        public Player() : base (0,0)
+        public Player(float x, float y) : base (x , y)
         {
             
         }
@@ -24,7 +24,6 @@ namespace GraphicalTestApp
             {
                 Y -= 200f * deltaTime;
             }
-
             //Moves the Player down
             if (Input.IsKeyDown(83))//S
             {
